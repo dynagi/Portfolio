@@ -1,47 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/0699942920.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/0699942920.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="header">
-    <div class="container">
-        <nav>
-            <img src="image/shiv.png" class="logo">
-            <ul id="sidemenu">
-                <li><a href="#header">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <i class="fas fa-circle-xmark" onclick="closemenu()"></i>
-            </ul>
-            <i class="fas fa-bars" onclick="openmenu()"></i>
-        </nav>
-        <div class="header-text">
-            <p>UI/UX Designer</p>
-            <h1>Hi I'm <span>Shivam</span><br>
-                Upadhyay</h1>
-        </div>
+
+  <!-- Welcome Screen -->
+  <div id="welcome-screen">
+    <div class="welcome-text">
+      <p id="greet-text" class="welcome-message">Hello, how are you?</p>
+      <p id="welcome-text" class="welcome-message">Welcome to my portfolio</p>
     </div>
-</div> 
+  </div>
+
+  <!-- Main Portfolio Content -->
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="shiv.png" class="logo" />
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="work.html">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fas fa-circle-xmark" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-bars" onclick="openmenu()"></i>
+      </nav>
+
+      <div class="header-text">
+        <p>UI/UX Designer</p>
+        <h1 id="intro-text" class="typing-cursor"></h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+  // Line to type on the header
+  const line1 = "Hi I'm Shivam Upadhyay";
+  const introElement = document.getElementById("intro-text");
+  let index1 = 0;
+
+  // Function to create typewriter effect
+  function typeLine1() {
+    if (index1 <= line1.length) {
+      let typed = line1.slice(0, index1);
+      if (typed.includes("Shivam")) {
+        typed = typed.replace("Shivam", "<span>Shivam</span><br>");
+      }
+      introElement.innerHTML = typed;
+      index1++;
+      setTimeout(typeLine1, 100);
+    } else {
+      introElement.classList.remove("typing-cursor");
+      introElement.classList.add("zoom-in");
+    }
+  }
+
+  // Welcome screen behavior and main typing animation on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const greetText = document.getElementById('greet-text');
+    const welcomeText = document.getElementById('welcome-text');
+    const welcomeScreen = document.getElementById('welcome-screen');
+
+    greetText.classList.add('show');
+
+    // Show welcome message after 2.5s
+    setTimeout(() => {
+      greetText.classList.remove('show');
+      welcomeText.classList.add('show');
+    }, 2500);
+
+    // Fade out welcome screen after 5.5s
+    setTimeout(() => {
+      welcomeScreen.classList.add('fade-out');
+    }, 5500);
+
+    // Hide welcome screen completely after fade
+    setTimeout(() => {
+  welcomeScreen.style.display = "none";
+  document.getElementById('header').classList.add('visible');
+}, 6500);
+
+    // Start main text typing effect
+    typeLine1();
+  });
+</script>
+
+
+</body>
+</html>
+
+
+
 <!--------------------- about ------------------------>
 <div id="about">
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="image/Shivam.png">
+                <img src="Upa.webp">
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
-                <p>Hello all I am Shivam Upadhyay🚀 from Bhilwara Rajasthan.
-                    Currently I am pursuing my B.tech from MIT World Peace University in CSE branch.
+                <p>Hello all I am Shivam Upadhyay🚀 from Rajasthan.
+                    Currently I am pursuing my B.tech in CSE branch.
                     I am having interest in developing website, and also love C++ and Python.
-                    I am a 3rd year B.tech student and looking for the opportunity to apply my skills in reat world.
+                    I am a 4th year B.tech student and looking for the opportunity to apply my skills in reat world.
                 </p>
 
                 <div class="tab-titles">
@@ -65,81 +135,14 @@
                 </div>
                 <div class="tab-contents" id="education">
                     <ul>
-                         <li><span>2019</span><br>Complete My 10<sup>th</sup> from Ajmer</li>
-                        <li><span>2021</span><br>Complete My 12<sup>th</sup> from Bundi</li>
-                        <li><span>2023</span><br>Pursuing B.tech in MIT WPU</li>
+                         <li><span>2019</span><br>Complete My 10<sup>th</sup> from Pune</li>
+                        <li><span>2021</span><br>Complete My 12<sup>th</sup> from Pune</li>
+                        <li><span>2023</span><br>Pursuing B.tech in Pune</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- services -->
-<div id="services">
-    <div class="container">
-        <h1 class='sub-title'>My Services</h1>
-        <div class="service-list">
-            <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Web Design</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore consequatur eligendi illo soluta. Dicta quis, asperiores fuga recusandae eaque impedit!</p>
-                <a href="#">Learn More</a>
-            </div>
-            <div>
-                <i class="fa-solid fa-crop-simple"></i>
-                <h2>UI/UX Design</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore consequatur eligendi illo soluta. Dicta quis, asperiores fuga recusandae eaque impedit!</p>
-                <a href="#">Learn More</a>
-            </div>
-            <div>
-                <i class="fa-brands fa-app-store-ios"></i>
-                <h2>App Design</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore consequatur eligendi illo soluta. Dicta quis, asperiores fuga recusandae eaque impedit!</p>
-                <a href="#">Learn More</a>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-
-<!----------------------------- portfolio ----------------------------------->
-<div id="portfolio">
-    <div class="container">
-        <h1 class='sub-title'>My Work</h1>
-        <div class="work-list">
-            <div class="work">
-                <img src="image/work-1.png">
-                <div class="layer">
-                    <h3>Social Media App</h3>
-                    <p>The app connect you to the talented people around the world. Download it from play store</p>
-                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="image/work-2.png">
-                <div class="layer">
-                    <h3>Music App</h3>
-                    <p>The app connect you to the talented people around the world. Download it from play store</p>
-                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="image/work-3.png">
-                <div class="layer">
-                    <h3>Online Shopping App</h3>
-                    <p>The app connect you to the talented people around the world. Download it from play store</p>
-                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-        </div>
-        <a href="#" class="btn">See More</a>
-
-    </div>
-
-
 </div>
 
 <!-- contact -->
@@ -157,7 +160,7 @@
                         <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
                     </div>
-                    <a href="image/Resume.pdf" download class="btn btn2">Download CV</a>
+                    <a href="Resume.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
                 <form name="submit-to-google-sheet">
@@ -170,7 +173,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>Copyright @ Shivam. Made with💓 by Shivam Upadhyay</p>
+            <p>Copyright @ Gigacbum. Made with💓 by Shivam Upadhyay</p>
         </div>
     </div>
 

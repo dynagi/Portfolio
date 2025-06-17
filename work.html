@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/0699942920.js" crossorigin="anonymous"></script>
+  <style>
+    #more-work-message {
+      display: none;
+      text-align: center;
+      color: #ffcb05;
+      margin: 30px auto;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Portfolio Section -->
+  <div id="portfolio">
+    <div class="container">
+      <h1 class="sub-title">My Work</h1>
+      <div class="work-list">
+        <div class="work">
+          <img src="work-1.png" alt="Social Media App" />
+          <div class="layer">
+            <h3>Social Media App</h3>
+            <p>The app connects you to talented people around the world. Download it from Play Store.</p>
+            <a href="https://www.facebook.com/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="work-2.png" alt="Music App" />
+          <div class="layer">
+            <h3>Music App</h3>
+            <p>The app connects you to talented people around the world. Download it from Play Store.</p>
+            <a href="https://open.spotify.com/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="work-3.png" alt="Online Shopping App" />
+          <div class="layer">
+            <h3>Online Shopping App</h3>
+            <p>The app connects you to talented people around the world. Download it from Play Store.</p>
+            <a href="https://www.amazon.in/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- See More Button -->
+      <a href="#" class="btn" onclick="showMoreWork()">See More</a>
+
+      <!-- Hidden Message -->
+      <p id="more-work-message">
+        I'm sorry, I don't have more work to showcase at the moment —<br />
+        I'm currently working on some exciting new projects.<br />
+        Stay tuned!
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showMoreWork() {
+      const message = document.getElementById('more-work-message');
+      message.style.display = 'block';
+      message.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
